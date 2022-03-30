@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Stream | Gater</title>
+{% endblock %}
+
+{% block body %}
+  <img src='{{ images[0] }}' class='card'>
+  <img src='{{ images[1] }}' class='card'>
+  <img src='{{ images[2] }}' class='card'>
+  <img src='{{ images[3] }}' class='card'>
+  <img src='{{ images[4] }}' class='card'>
+  <img src='{{ images[5] }}' class='card'>
+  <img src='{{ images[6] }}' class='card'>
+  <img src='{{ images[7] }}' class='card'>
+  <img src='{{ images[8] }}' class='card'>
+  <img src='{{ images[9] }}' class='card'>
+  <form id='preferences_saver_color' method='post' action='/set/color/{"W":  10, "U": 10, "B": 10, "R": 10, "G": 10}'>
+    <button id='color_cookie_push' hidden>OKEYDOKEY</button>
+  </form>
+  <form id='preferences_saver_type' method='post' action='/set/type/{"Human": 50}'>
+    <button  id='type_cookie_push' hidden>OKEYDOKEY</button>
+  </form>
+	<script src="{{ url_for('static', filename='js/stream.js') }}"></script>
+{% endblock %}
