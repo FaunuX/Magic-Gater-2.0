@@ -1,29 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700');
+
+@keyframes fade-in {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
 
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-image: url("/static/images/bg.svg");
+	background-image: linear-gradient(#121212, rgba(12, 12, 12, 0.9), rgba(12, 12, 12, 0.8)), url(/static/images/bg.svg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 
+.title-bar {
+  background-color: #91f086/*#273725*/;
+  text-shadow: 0 0 10px #273725;
+  padding: 0;
+  font-size: 1.75em;
+  font-family: 'Comfortaa', cursive;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  animation: fade-in;
+  animation-duration: 1s;
+}
+
 .main-nav {
-  background-color: #40BB40;
-  height: 3.5em;
+  background-color: #1A1F24;
+  height: 2.75em;
   text-align: center;
   padding: 5px;
-  color: black;
-  font-family: 'Permanent Marker', cursive;
+  padding-bottom: 0;
+  color: #91F086;
+  font-family: 'Comfortaa', cursive;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
-  align-items: center;
+  align-items: flex-end;
+  animation-name: fade-in;
+  animation-duration: 2s;
 }
 
 .main-nav ul {
@@ -32,18 +58,33 @@ body {
 
 .main-nav li {
   display: inline-block;
+  box-sizing: border-box;
   margin: 0 2em 0;
-  font-size: 1.75em;
-  padding: 0.35em 1em 0.35em;
+  font-size: 1em;
+  padding: 0.5em 1em 0.35em;
+  width: 6em;
+  height: 2.4em;
+  margin: 5px;
+  margin-bottom: 0px;
+  border-weight: 0.05em;
+  border-radius: 0.5em 0.5em 0 0;
+  transition: background-color 0.75s;
 }
 
-.main-nav li:hover {
-  background-color: #00cc00;
+.main-nav li:not(.active_tab):hover {
+  background-image: linear-gradient(#121212, #1A1F24);
 }
 
-.main-nav a {
+ nav ul li .nav-link {
   text-decoration: none;
-  color: black;
+  color: #91f086;
+  text-shadow: 0 0 1px #00ff00, 0 0 20px #11823b;
+}
+
+.active_tab {
+  background-color: #121212;
+  -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2));
+  text-shadow: 0 0 20px #00ff00, 0 0 20px #11823b;
 }
 
 .container {
@@ -53,28 +94,62 @@ body {
   justify-content: center;
   align-items: center;
   margin: 1em;
+  animation-name: fade-in;
+  animation-duration: 3s;`
 }
 
 .card {
-	width: 427px;
-	height: 595px;
+	width: 341px;
+	height: 476px;
 	margin: 1em;
-	transition: height 500ms cubic-bezier(0.25, 0.1, 0.81,-0.04), transform 500ms;
+	transition: 
+    height 500ms cubic-bezier(0.25, 0.1, 0.81,-0.04), 
+    transform 500ms;
 }
 
 
 @media screen and (max-width: 815px) {
+  .main-nav {
+    height: 2.5em;
+  }
+  
   .main-nav li {
-    font-size: 1.25em;
+    font-size: 1em;
+    height: 2em;
   }
 }
 
 @media screen and (max-width: 600px) {
+  .main-nav {
+  *height: 1.75em;
+  }
   .main-nav li {
-    font-size: 0.8em
+    font-size: 0.8em;
+    height: 2.75em;
+    padding-top: 0.75em
   }
 
   .container {
     margin: 1em;
   }
+}
+
+.homepage {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: auto auto auto auto;
+}
+
+headline {
+  grid-column: 1/span 2;
+}
+
+.sub-headline {
+  grid-column: 1/span 2;
+  grid-row: 2;
+}
+
+.header-image {
+  grid-column: 3/span 2;
+  grid-row: 1/ span 
 }

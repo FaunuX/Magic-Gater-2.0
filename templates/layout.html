@@ -8,17 +8,33 @@
 {% block head %}{% endblock %}
 </head>
 <body>
+  <div class='title-bar'>Magic Gater</div>
   <nav class='main-nav'>
+    <div>Logo</div>
     <ul>
-      <li><a href='#'>Home</li>
-      <li><a href='#'>Stream</li>
-      <li><a href='#'>Saved</li>
+      <li class='{{tab_classes[0]}}'><a href='/' class='nav-link'><strong>Home</strong></li>
+      <li class='{{tab_classes[1]}}'><a href='/stream/' class='nav-link'><strong>Stream</strong></li>
+      <li class='{{tab_classes[2]}}'><a href='/saved/' class='nav-link'><strong></strong>Saved</strong></li>
+      <li></li>
     </ul>
   </nav>
   <div class='container'>
     {% block body %}{% endblock %}
   </div>
-  <div class='cookie_colors' id="{{ request.cookies.get('color_preferences') }}">
-  </div>
+  <script>
+    const glitch = document.getElementsByClassName('nav-link')
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    for (let value of glitch) {
+      for (let glossary of [1, 2, 4, 5, 7, 8]) {
+        if (glitch[glossary] == value) {
+          value.style.display = 'none'
+        }
+      }
+      if (value == glitch[9]) {
+        console.log('smth')
+        value.replaceWith(...value.childNodes);
+      }
+    }
+  </script>
 </body>
 </html>

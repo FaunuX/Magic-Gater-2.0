@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+  {% for card in card_data %}
+    <img class='card' src='{{ card["image_uris"]["png"] }}'>
+  {% endfor %}
+
+{% endblock %}
